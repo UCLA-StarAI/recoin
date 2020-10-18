@@ -7,9 +7,20 @@ from os.path import isdir, isfile, join
 import json
 from pysmt.shortcuts import And, Bool, LE, Real
 from rcwmi import RCWMI
-from wmipa import WMI
-from pywmi import RejectionEngine, XsddEngine
-from pywmi.engines.rejection import RejectionIntegrator
+try:
+    from wmipa import WMI
+except ImportError:
+    print("couldn't import wmipa")
+    WMI = None
+
+try:
+    from pywmi import RejectionEngine, XsddEngine
+    from pywmi.engines.rejection import RejectionIntegrator
+except ImportError:
+    print("couldn't import pywmi")
+    RejectionEngine, XsddEngine, RejectionIntegrator = None, None, None
+    
+    
           
 import time
 
