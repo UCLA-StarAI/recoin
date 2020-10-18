@@ -3,7 +3,6 @@ import networkx as nx
 from pysmt.shortcuts import Symbol, LE, Real, And, Times, substitute, Ite, Plus, \
     Bool, is_sat, Equals
 from pysmt.typing import REAL
-from wmipa import WMI
 
 from mpwmi import MP2WMI
 from mpwmi.utils import SMT_SOLVER, safeexp, safelog
@@ -496,6 +495,7 @@ class RCWMI(MP2WMI):
 
 if __name__ == '__main__':
     from mpwmi import set_logger_debug
+    from wmipa import WMI
     set_logger_debug()
 
     import matplotlib.pyplot as plt
